@@ -25,18 +25,18 @@ function Aside() {
                 <textarea type="text" placeholder='description here...' className="p-1 rounded-sm w-[100%] task_name outline-sky-500 border-sky-400 border-solid border-x-2 border-y-2"/>
             </div>
             <div className="mb-2 status">
-                <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status</label>
-                <select id="countries" class="p-1 rounded-sm w-[100%] task_name outline-sky-500 border-sky-400 border-solid border-x-2 border-y-2">
-                    <option selected>Choose a country</option>
+                <label for="status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status</label>
+                <select id="status" class="p-1 rounded-sm w-[100%] task_name outline-sky-500 border-sky-400 border-solid border-x-2 border-y-2">
+                    <option selected>Choose A Status</option>
                     <option value="To Do">To Do</option>
                     <option value="Doing">Doing</option>
                     <option value="Done">Done</option>
                 </select>
             </div>
             <div className="mb-2 priority">
-                <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category</label>
-                <select id="countries" class="p-1 rounded-sm w-[100%] task_name outline-sky-500 border-sky-400 border-solid border-x-2 border-y-2">
-                    <option selected>Choose a status</option>
+                <label for="priority" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Priority</label>
+                <select id="priority" class="p-1 rounded-sm w-[100%] task_name outline-sky-500 border-sky-400 border-solid border-x-2 border-y-2">
+                    <option selected>Choose A Priority</option>
                     <option value="High">High</option>
                     <option value="Medium">Medium</option>
                     <option value="Low">Low</option>
