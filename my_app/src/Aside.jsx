@@ -32,7 +32,7 @@ function Aside() {
             <div className="mb-2 status">
                 <label htmlFor="status" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status</label>
                 <select id="status" className="p-1 rounded-sm w-[100%] task_name outline-sky-500 border-sky-400 border-solid border-x-2 border-y-2">
-                    <option disabled value={""}>Choose A Status</option>
+                    <option disabled>Choose A Status</option>
                     <option value="To Do">To Do</option>
                     <option value="Doing">Doing</option>
                     <option value="Done">Done</option>
@@ -41,7 +41,7 @@ function Aside() {
             <div className="mb-2 priority">
                 <label htmlFor="priority" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Priority</label>
                 <select id="status" className="p-1 rounded-sm w-[100%] task_name outline-sky-500 border-sky-400 border-solid border-x-2 border-y-2">
-                    <option disabled value={""}>Choose A Status</option>
+                    <option disabled>Choose A Priority</option>
                     <option value="To Do">High</option>
                     <option value="Doing">Medium</option>
                     <option value="Done">Low</option>
@@ -60,7 +60,7 @@ export default Aside;
 {/* <div className="mb-2 status">
 <label htmlFor="status" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status</label>
 <select multiple={false} value={status} onChange={(newVal) => {setStatus(newVal.target.value)}} id="status" className="p-1 rounded-sm w-[100%] task_name outline-sky-500 border-sky-400 border-solid border-x-2 border-y-2">
-    <option disabled value={""}>Choose A Status</option>
+    <option disabled>Choose A Status</option>
     <option value="To Do">To Do</option>
     <option value="Doing">Doing</option>
     <option value="Done">Done</option>
@@ -69,7 +69,7 @@ export default Aside;
 <div className="mb-2 priority">
 <label htmlFor="priority" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Priority</label>
 <select multiple={false} value={status} onChange={(newVal) => {setStatus(newVal.target.value)}} id="status" className="p-1 rounded-sm w-[100%] task_name outline-sky-500 border-sky-400 border-solid border-x-2 border-y-2">
-    <option disabled value={""}>Choose A Status</option>
+    <option disabled>Choose A Status</option>
     <option value="To Do">High</option>
     <option value="Doing">Medium</option>
     <option value="Done">Low</option>

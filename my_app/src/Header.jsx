@@ -10,13 +10,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // Import Images
 import avatarLogo from "./assests/avatar.jpg";
 
-
 const Header = () => {
     return (
         <header className="bg-slate-50 p-5 grid grid-cols-5
         shadow-[0_-1px_6px_rgba(0,0,0,0.3)] light_mode">
             <div className="logo lg:col-span-1 lg:block md:block hidden">
-                <p className="text-2xl font-bold text-sky-500">NoteMind</p>
+                <a href="#">
+                    <p className="text-2xl font-bold text-sky-500">NoteMind</p>
+                </a>
             </div>
             <div className="search flex col-span-3 lg:col-span-3 md:col-span-3 justify-center items-center">
                 <input className="w-4/5 border-sky-500 rounded-l-sm border-2 border-solid rounded-none h-full pl-2 b2-slate-50 outline-none" type="text" placeholder="Search"/>
