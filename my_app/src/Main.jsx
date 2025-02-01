@@ -8,8 +8,8 @@ export default function Main() {
         <h2 className="font-semibold text-lg mb-5">Today tasks</h2>
         <ul class="grid grid-cols-6 w-[100%] py-1 navigation mb-5 rounded-lg">
             <button className="col-span-2 text-center font-semibold rounded-sm py-2 px-4 text-sm bg-sky-500 hover:bg-sky-600 transition-all text-white">To Do</button>
-            <button className="col-span-2 ml-2 text-center font-semibold hover:bg-gray-200 rounded-sm text-sky-600 py-2 px-4 text-sm transition-all text-white">Doing</button>
-            <button className="col-span-2 ml-2 text-center font-semibold hover:bg-gray-200 rounded-sm text-sky-600 py-2 px-4 text-sm transition-all text-white">Done</button>
+            <button className="col-span-2 ml-2 text-center font-semibold hover:bg-gray-200 rounded-sm text-sky-600 py-2 px-4 text-sm transition-all">Doing</button>
+            <button className="col-span-2 ml-2 text-center font-semibold hover:bg-gray-200 rounded-sm text-sky-600 py-2 px-4 text-sm transition-all">Done</button>
         </ul>
         <div className="cards grid grid-cols-6 gap-3">
             <Card></Card>
