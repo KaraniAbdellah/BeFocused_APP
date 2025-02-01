@@ -12,26 +12,17 @@ import avatarLogo from "./assests/avatar.jpg";
 
 
 const Header = () => {
-    useEffect(() => {
-        const dark_mode = document.querySelector(".dark_mode");
-        let header = document.querySelector("header");
-        dark_mode.addEventListener("click", function() {
-            header.classList.toggle("dark_mode");
-            header.classList.toggle("light_mode");
-            console.log(header);
-        });
-    }, []);
     return (
         <header className="bg-slate-50 p-5 grid grid-cols-5
-        shadow-[0_-1px_6px_rgba(0,0,0,0.3)]">
+        shadow-[0_-1px_6px_rgba(0,0,0,0.3)] light_mode">
             <div className="logo lg:col-span-1 lg:block md:block hidden">
                 <p className="text-2xl font-bold text-sky-500">NoteMind</p>
             </div>
-            <div className="search flex col-span-4 lg:col-span-3 md:col-span-3 justify-center items-center">
+            <div className="search flex col-span-3 lg:col-span-3 md:col-span-3 justify-center items-center">
                 <input className="w-4/5 border-sky-500 rounded-l-sm border-2 border-solid rounded-none h-full pl-2 b2-slate-50 outline-none" type="text" placeholder="Search"/>
                 <button className='w-1/5 transition-all h-full font-semibold rounded-r-sm bg-sky-500 text-white hover:bg-sky-600'>Search</button>
             </div>
-            <div className="account lg:col-span-1 text-right flex justify-end">
+            <div className="account lg:col-span-1 md:col-span-1 sm:col-span-1 col-span-2 text-right flex justify-end">
                 <button className="mr-5 w-10 rounded-3xl dark_mode border-2 border-sky-500 hover:bg-gray-100">
                     <FontAwesomeIcon className="font-semibold text-sky-500" icon={faMoon} />
                 </button>
