@@ -1,7 +1,10 @@
+// import useEffect
+import React, { useEffect } from "react";
+
 // Include Font Awesome
 import { faEnvelope, faHippo } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faMagnifyingGlass, faDatabase, faMoon } from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass, faDatabase, faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // Import Images
@@ -9,6 +12,15 @@ import avatarLogo from "./assests/avatar.jpg";
 
 
 const Header = () => {
+    useEffect(() => {
+        const dark_mode = document.querySelector(".dark_mode");
+        let header = document.querySelector("header");
+        dark_mode.addEventListener("click", function() {
+            header.classList.toggle("dark_mode");
+            header.classList.toggle("light_mode");
+            console.log(header);
+        });
+    }, []);
     return (
         <header className="bg-slate-50 p-5 grid grid-cols-5
         shadow-[0_-1px_6px_rgba(0,0,0,0.3)]">
@@ -20,7 +32,7 @@ const Header = () => {
                 <button className='w-1/5 transition-all h-full font-semibold rounded-r-sm bg-sky-500 text-white hover:bg-sky-600'>Search</button>
             </div>
             <div className="account lg:col-span-1 text-right flex justify-end">
-                <button className="mr-5 w-10 rounded-3xl border-2 border-sky-500 ">
+                <button className="mr-5 w-10 rounded-3xl dark_mode border-2 border-sky-500 hover:bg-gray-100">
                     <FontAwesomeIcon className="font-semibold text-sky-500" icon={faMoon} />
                 </button>
                 <img className="w-10 cursor-pointer rounded-3xl border-2 border-sky-500" src={avatarLogo} alt="" />

@@ -1,0 +1,7 @@
+/* Start Global For Dark Mode */
+header.dark_mode {
+    background-color: #444 !important;
+}
+header.light_mode {
+    background-color: white !important;
+}

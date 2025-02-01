@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from 'react-dom';
 
 // Font Awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -12,6 +11,7 @@ import Section from "./Section";
 
 // Import CSS filies
 import "./mainCLass.css";
+import "./global.css";
 
 
 function App() {

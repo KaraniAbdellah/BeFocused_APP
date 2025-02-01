@@ -10,7 +10,7 @@ export default function Card() {
       <div className="task_info flex justify-between mb-2">
         <h3 className="font-semibold">Task Name</h3>
         <label htmlFor="" className="text-xl text-green-600 flex items-center gap-2">
-            <input type="checkbox" className="w-5 h-5 accent-green-600" name="" id="" />
+            <input type="checkbox" className="w-5 h-5 accent-green-600 cursor-pointer" name="" id="" />
         </label>
       </div>
       <p className="description mb-2 text-sm">
@@ -18,10 +18,10 @@ export default function Card() {
       </p>
       <hr />
       <div className="btns mt-3">
-        <button class="bg-green-600 hover:bg-green-700 text-white text-sm font-bold py-1 px-2 rounded">
+        <button className="bg-green-600 hover:bg-green-700 text-white text-sm font-bold py-1 px-2 rounded">
           Start
         </button>
-        <button class="bg-red-600 hover:bg-red-700 mx-2 text-white text-sm font-bold py-1 px-2 rounded">
+        <button className="bg-red-600 hover:bg-red-700 mx-2 text-white text-sm font-bold py-1 px-2 rounded">
           Delete
         </button>
       </div>
