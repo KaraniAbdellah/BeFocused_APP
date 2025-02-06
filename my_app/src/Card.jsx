@@ -9,9 +9,6 @@ export default function Card() {
     <div className="card bg-gray-100 p-2 rounded-sm lg:col-span-3 md:col-span-3 sm:col-span-6 col-span-6">
       <div className="task_info flex justify-between mb-2">
         <h3 className="font-semibold">Task Name</h3>
-        {/* <label htmlFor="" className="text-xl text-green-600 flex items-center gap-2">
-            <input type="checkbox" className="w-5 h-5 accent-green-600 cursor-pointer" name="" id="" />
-        </label> */}
       </div>
       <p className="description mb-2 text-sm">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, sint?
@@ -31,3 +28,11 @@ export default function Card() {
     </div>
   );
 }
+
+
+// I Change The Idea of Label 
+{/* <label htmlFor="" className="text-xl text-green-600 flex items-center gap-2">
+    <input type="checkbox" className="w-5 h-5 accent-green-600 cursor-pointer" name="" id="" />
+</label> */}
+
+
