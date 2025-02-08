@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 // Font Awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -15,10 +15,11 @@ import "./global.css";
 
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false);
   return (
-    <div className="App">
-        <Header></Header>
-        <Section></Section>
+    <div className={`${darkMode ? "dark": ""} app`}>
+        <Header setDarkMode={setDarkMode} darkMode={darkMode}></Header>
+        <Section setDarkMode={setDarkMode} darkMode={darkMode}></Section>
     </div>
   );
 }

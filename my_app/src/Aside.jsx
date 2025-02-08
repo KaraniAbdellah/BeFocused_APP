@@ -8,7 +8,7 @@ import { faPlus, faTrashCan, faGauge, faTag, faX } from "@fortawesome/free-solid
 // Import Aside Component
 import Main from "./Main";
 
-function Aside() {
+function Aside({setDarkMode, darkMode}) {
     const AddTask = () => {
         console.log("Hello World");
     }
@@ -34,19 +34,34 @@ function Aside() {
     }
 
     return (
-        <aside className="bg-white dark:bg-slate-500 inset-shadow-2xs lg:mb-0 md:mb-4 py-4 px-5 rounded w-[100%] lg:w-[30%] md:w-[100%] sm:w-[100%]">
-            <h3 className="font-semibold mb-3 text-lg">Create new Task</h3>
+        <aside className={`${darkMode ? "dark bg-zinc-700" : ""} bg-white inset-shadow-2xs
+        lg:mb-0 md:mb-4 py-4 px-5 rounded w-[100%] lg:w-[30%] md:w-[100%]
+        sm:w-[100%]`}>
+            <h3 className={`${darkMode ? "dark text-white": ""} font-semibold mb-3 text-lg`}>Create new Task</h3>
             <div className="mb-2 name">
-                <h3 className="mb-1 font-semibold">task name</h3>
-                <input onInput={(e) => HandleTitle(e)} type="text" placeholder='task name...' className="p-1 rounded-sm w-[100%] task_name outline-sky-500 border-sky-400 border-solid border-x-2 border-y-2"/>
+                <h3 className={`${darkMode ? "dark text-white": ""} mb-1 font-semibold`}>task name</h3>
+                <input onInput={(e) => HandleTitle(e)} type="text" placeholder='task name...' 
+                className={`${darkMode ? "dark bg-zinc-700 text-white" : ""}
+                p-1 rounded-sm w-[100%] task_name outline-sky-500 border-sky-400 border-solid 
+                border-x-2 border-y-2
+                `}/>
             </div>
             <div className="mb-2 description">
-                <h3 className="mb-1 font-semibold">description</h3>
-                <textarea onInput={(e) => HandleDescription(e)} type="text" placeholder='description here...' className="p-1 rounded-sm w-[100%] task_name outline-sky-500 border-sky-400 border-solid border-x-2 border-y-2"/>
+                <h3 className={`${darkMode ? "dark text-white" : ""} mb-1 font-semibold`}>description</h3>
+                <textarea onInput={(e) => HandleDescription(e)} type="text" placeholder='description here...'
+                className={`${darkMode ? "dark bg-zinc-700 text-white" : ""}
+               p-1 rounded-sm w-[100%] task_name outline-sky-500 border-sky-400
+                border-solid border-x-2 border-y-2
+                `}
+                />
             </div>
             <div className="mb-2 status">
-                <label htmlFor="status" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status</label>
-                <select onChange={(e) => HandleStatus(e)} id="status" className="p-1 rounded-sm w-[100%] task_name outline-sky-500 border-sky-400 border-solid border-x-2 border-y-2">
+                <label htmlFor="status" className={`${darkMode ? "dark text-white": ""}
+                block mb-2 font-semibold`}>status</label>
+                <select onChange={(e) => HandleStatus(e)} id="status"
+                    className={`${darkMode ? "dark bg-zinc-700 text-white" : ""}
+                    p-1 rounded-sm w-[100%] task_name outline-sky-500 
+                    border-sky-400 border-solid border-x-2 border-y-2 bg-white`}>
                     <option disabled value={""}>Choose A Status</option>
                     <option value="To Do">To Do</option>
                     <option value="Doing">Doing</option>
@@ -54,8 +69,12 @@ function Aside() {
                 </select>
             </div>
             <div className="mb-2 priority">
-                <label htmlFor="priority" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Priority</label>
-                <select onChange={(e) => HandlePriority(e)} id="priority" className="p-1 rounded-sm w-[100%] task_name outline-sky-500 border-sky-400 border-solid border-x-2 border-y-2">
+                <label htmlFor="status" className={`${darkMode ? "dark text-white": ""}
+                block mb-2 font-semibold`}>priority</label>
+                    <select onChange={(e) => HandlePriority(e)} id="priority" 
+                    className={`${darkMode ? "dark bg-zinc-700 text-white" : ""}
+                    p-1 rounded-sm w-[100%] task_name outline-sky-500 
+                    border-sky-400 border-solid border-x-2 border-y-2 bg-white`}>
                     <option disabled value={""}>Choose A Status</option>
                     <option value="High">High</option>
                     <option value="Medium">Medium</option>

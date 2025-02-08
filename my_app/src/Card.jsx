@@ -4,13 +4,14 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCarOn } from "@fortawesome/free-solid-svg-icons";
 
-export default function Card() {
+export default function Card({darkMode}) {
   return (
-    <div className="card bg-gray-100 p-2 rounded-sm lg:col-span-3 md:col-span-3 sm:col-span-6 col-span-6">
-      <div className="task_info flex justify-between mb-2">
-        <h3 className="font-semibold">Task Name</h3>
+    <div className={`${darkMode ? "dark bg-zinc-800": ""} card bg-gray-100 p-2 rounded-sm lg:col-span-3
+       md:col-span-3 sm:col-span-6 col-span-6`}>
+      <div className={`${darkMode ? "dark": ""} task_info flex justify-between mb-2`}>
+        <h3 className={`${darkMode ? "dark text-white": ""} font-semibold`}>Task Name</h3>
       </div>
-      <p className="description mb-2 text-sm">
+      <p className={`${darkMode ? "dark text-white" : ""} description mb-2 text-sm`}>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, sint?
       </p>
       <hr />
