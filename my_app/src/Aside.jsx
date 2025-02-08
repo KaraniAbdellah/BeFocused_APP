@@ -19,7 +19,7 @@ function Aside() {
     // let [status, setStatus] = useState("");
 
     return (
-        <aside className="bg-white inset-shadow-2xs lg:mb-0 md:mb-4 py-4 px-5 rounded w-[100%] lg:w-[30%] md:w-[100%] sm:w-[100%]">
+        <aside className="bg-white dark:bg-slate-500 inset-shadow-2xs lg:mb-0 md:mb-4 py-4 px-5 rounded w-[100%] lg:w-[30%] md:w-[100%] sm:w-[100%]">
             <h3 className="font-semibold mb-3 text-lg">Create new Task</h3>
             <div className="mb-2 name">
                 <h3 className="mb-1 font-semibold">task name</h3>
