@@ -1,19 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-export default function Card({ darkMode, taskName, description, setTasks, tasks, taskStarted, setTaskStarted }) {
+export default function Card({ idOfTask, darkMode, taskName, description, status, priority,
+    setTasks, tasks, taskStarted, setTaskStarted, classNameOdTaskStarted, setTimeLeft}) {
     const handleStart = (event) => {
-        console.log("task will be started");
-        setTaskStarted(true);
-        let TaskStartedEle = event.target.parentElement.parentElement;
-        if (!taskStarted) {
-            TaskStartedEle.classList.add("taskStarted");
-        } 
+        if (Number(localStorage.getItem("idOfTaskStarted")) === -1) {
+            setTaskStarted(idOfTask);
+            let TaskStartedEle = event.target.parentElement.parentElement;
+            localStorage.setItem("idOfTaskStarted", idOfTask);
+            if (!taskStarted) {
+                TaskStartedEle.classList.add("taskStarted");
+            }
+        }
     };
     const handleDelete = (event) => {
         console.log("task will be deleted");
         let taskName =
         event.target.parentElement.parentElement.firstElementChild
             .firstElementChild.textContent;
+        if (event.target.parentElement.parentElement.classList.contains("taskStarted")) {
+            setTaskStarted(-1);
+            localStorage.setItem("idOfTaskStarted", -1);
+
+        }
         let Storedtasks = JSON.parse(localStorage.getItem("tasks"));
         if (Storedtasks) {
             Storedtasks = Storedtasks.filter((task) => task.taskName !== taskName);
@@ -23,15 +31,30 @@ export default function Card({ darkMode, taskName, description, setTasks, tasks,
     };
     const handleDone = (event) => {
         console.log("task will be in Done State");
+        if (event.target.parentElement.parentElement.classList.contains("taskStarted")) {
+            setTaskStarted(-1);
+            localStorage.setItem("idOfTaskStarted", -1);
+            setTimeLeft(1500);
+
+            let taskName =
+            event.target.parentElement.parentElement.firstElementChild
+                .firstElementChild.textContent
+            let Storedtasks = JSON.parse(localStorage.getItem("tasks"));
+            if (Storedtasks) {
+                Storedtasks = Storedtasks.filter((task) => task.taskName !== taskName);
+                localStorage.setItem("tasks", JSON.stringify(Storedtasks));
+                setTasks(Storedtasks);
+            }
+        }
     };
     return (
         <div
         className={`${
                 darkMode ? "dark bg-zinc-800" : ""
-            } card bg-gray-100 p-2 rounded-sm lg:col-span-3
+            } ${classNameOdTaskStarted} card bg-gray-100 p-2 rounded-sm lg:col-span-3
             md:col-span-3 sm:col-span-6 col-span-6`
         }
-        >
+        id={idOfTask}>
         <div
             className={`${
             darkMode ? "dark" : ""
@@ -48,6 +71,10 @@ export default function Card({ darkMode, taskName, description, setTasks, tasks,
         >
             {description}
         </p>
+        <div className="pro_status flex gap-2 mb-4">
+            <button className="rounded bg-rose-500/100 text-white font-semibold text-xs p-1">{status}</button>
+            <button className="rounded bg-rose-500/100 text-white font-semibold text-xs p-1">{priority}</button>
+        </div>
         <hr />
         <div className="btns mt-3">
             <button

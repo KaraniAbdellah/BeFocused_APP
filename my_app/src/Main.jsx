@@ -1,26 +1,80 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Card from "./Card";
+import { faMinimize } from '@fortawesome/free-solid-svg-icons';
 
 
 export default function Main({darkMode, tasks, setTasks}) {
-    const [taskStarted, setTaskStarted] = useState(false);
+    const [taskStarted, setTaskStarted] = useState(-1);
+    const [timeLeft, setTimeLeft] = useState(1500);
+    useEffect(() => {
+        const storedTask = localStorage.getItem("idOfTaskStarted");
+        if (storedTask) {
+            setTaskStarted(Number(storedTask));
+            setTimeLeft(localStorage.getItem("timeLeft") || 1500);
+        }
+    }, []);
+
+    useEffect(() => {
+        let timer;
+        if (Number(taskStarted) !== -1) {
+            timer = setInterval(() => {
+                setTimeLeft((prev) => {
+                    if (prev <= 0) {
+                        clearInterval(timer);
+                        return 0;
+                    }
+                    localStorage.setItem("timeLeft", prev - 1);
+                    return prev - 1;
+                });
+            }, 1000);
+        }
+        return () => clearInterval(timer);
+    }, [taskStarted]);
+    
+    const formatTime = (seconds) => {
+        const minutes = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+
+        if (minutes === 0 && secs === 0) {
+            return `🎉 Congrats 🎉`;
+        } else {
+            return `Timer: ${minutes}:${secs.toString().padStart(2, "0")}`;
+        }
+    };
 
     return (
         <main className={`${darkMode ? "dark bg-zinc-700": ""} bg-white inset-shadow-2xs py-4 px-5 
         rounded w-[100%] sm:w-[100%] md:w-[100%] lg:w-[68%]`}>
             <div className="flex justify-between items-center mb-5">
-                <h2 className={`${darkMode ? "dark text-white" : ""} font-semibold text-lg mb-5`}>Today tasks</h2>
-                {taskStarted ? <p className="bg-green-500 p-2 rounded-sm font-semibold">Timer: 25:00 min</p> : ""}
+                <h2 className={`${darkMode ? "dark text-white" : ""} font-semibold text-2xl mb-5`}>Today tasks</h2>
+                {Number(taskStarted) !== -1 ? (
+                    <p className="bg-green-500 p-2 rounded-sm font-semibold text-zinc-800">
+                        {formatTime(timeLeft)}
+                    </p>
+                ) : ""}
             </div>
             <div className="cards grid grid-cols-6 gap-3">
             {tasks.length === 0 ? 
             <p className={`${darkMode ? "dark text-white": ""} text-center mt-10 col-span-6 font-semibold`}>No Task Yet</p> : 
             tasks.map((task, index) => 
-                <Card key={index} taskStarted={taskStarted} setTaskStarted={setTaskStarted} tasks={tasks} setTasks={setTasks} darkMode={darkMode} taskName={task.taskName} description={task.description}></Card>)}
+                    index === Number(localStorage.getItem("idOfTaskStarted")) ? 
+                    <Card key={index} idOfTask={index} taskStarted={taskStarted} 
+                    setTaskStarted={setTaskStarted} tasks={tasks} setTasks={setTasks} 
+                    darkMode={darkMode} taskName={task.taskName} description={task.description} status={task.status} priority={task.priority}
+                    classNameOdTaskStarted="taskStarted" setTimeLeft={setTimeLeft}></Card>
+                    :
+                    <Card key={index} idOfTask={index} taskStarted={taskStarted} 
+                    setTaskStarted={setTaskStarted} tasks={tasks} setTasks={setTasks} 
+                    darkMode={darkMode} taskName={task.taskName} description={task.description} status={task.status} priority={task.priority}
+                     classNameOdTaskStarted=""  setTimeLeft={setTimeLeft}></Card>
+                    )
+                }
             </div>
         </main>
     );
 }
+
+
 
 
 

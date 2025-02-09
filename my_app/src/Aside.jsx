@@ -37,9 +37,10 @@ function Aside({setDarkMode, darkMode, tasks, setTasks}) {
     }
 
     useEffect(() => {
-        let storedTasks = localStorage.getItem("tasks");
+        let storedTasks = JSON.parse(localStorage.getItem("tasks"));
+        console.log(storedTasks);
         if (storedTasks) {
-            setTasks(JSON.parse(storedTasks));
+            setTasks((storedTasks));
         } else {
             localStorage.setItem("tasks", JSON.stringify([]));
         }
