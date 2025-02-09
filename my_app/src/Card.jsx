@@ -4,8 +4,10 @@ export default function Card({ darkMode, taskName, description, setTasks, tasks,
     const handleStart = (event) => {
         console.log("task will be started");
         setTaskStarted(true);
-        let TaskStarted = event.target.parentElement.parentElement;
-        TaskStarted.classList.add("taskStarted");
+        let TaskStartedEle = event.target.parentElement.parentElement;
+        if (!taskStarted) {
+            TaskStartedEle.classList.add("taskStarted");
+        } 
     };
     const handleDelete = (event) => {
         console.log("task will be deleted");

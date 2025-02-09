@@ -3,24 +3,25 @@ import Card from "./Card";
 
 
 export default function Main({darkMode, tasks, setTasks}) {
-  const [taskStarted, setTaskStarted] = useState(false);
+    const [taskStarted, setTaskStarted] = useState(false);
 
-  return (
-    <main className={`${darkMode ? "dark bg-zinc-700": ""} bg-white inset-shadow-2xs py-4 px-5 
-      rounded w-[100%] sm:w-[100%] md:w-[100%] lg:w-[68%]`}>
-        <div className="flex justify-between items-center mb-5">
-            <h2 className={`${darkMode ? "dark text-white" : ""} font-semibold text-lg mb-5`}>Today tasks</h2>
-            {taskStarted ? <p className="bg-green-500 p-2 rounded-sm font-semibold">Timer: 25:00 min</p> : ""}
-        </div>
-        <div className="cards grid grid-cols-6 gap-3">
-          {tasks.length === 0 ? 
-          <p className={`${darkMode ? "dark text-white": ""} text-center mt-10 col-span-6 font-semibold`}>No Task Yet</p> : 
-          tasks.map((task, index) => 
-            <Card key={index} taskStarted={taskStarted} setTaskStarted={setTaskStarted} tasks={tasks} setTasks={setTasks} darkMode={darkMode} taskName={task.taskName} description={task.description}></Card>)}
-        </div>
-    </main>
-  )
+    return (
+        <main className={`${darkMode ? "dark bg-zinc-700": ""} bg-white inset-shadow-2xs py-4 px-5 
+        rounded w-[100%] sm:w-[100%] md:w-[100%] lg:w-[68%]`}>
+            <div className="flex justify-between items-center mb-5">
+                <h2 className={`${darkMode ? "dark text-white" : ""} font-semibold text-lg mb-5`}>Today tasks</h2>
+                {taskStarted ? <p className="bg-green-500 p-2 rounded-sm font-semibold">Timer: 25:00 min</p> : ""}
+            </div>
+            <div className="cards grid grid-cols-6 gap-3">
+            {tasks.length === 0 ? 
+            <p className={`${darkMode ? "dark text-white": ""} text-center mt-10 col-span-6 font-semibold`}>No Task Yet</p> : 
+            tasks.map((task, index) => 
+                <Card key={index} taskStarted={taskStarted} setTaskStarted={setTaskStarted} tasks={tasks} setTasks={setTasks} darkMode={darkMode} taskName={task.taskName} description={task.description}></Card>)}
+            </div>
+        </main>
+    );
 }
+
 
 
 {/* <ul className="grid grid-cols-6 w-[100%] py-1 navigation mb-5 rounded-lg">
