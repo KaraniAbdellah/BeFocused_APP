@@ -10,14 +10,13 @@ import Header from "./Header";
 import Section from "./Section";
 
 // Import CSS filies
-import "./mainCLass.css";
 import "./global.css";
 
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   return (
-    <div className={`${darkMode ? "dark": ""} app`}>
+    <div className={`${darkMode ? "dark": ""} app main_content`}>
         <Header setDarkMode={setDarkMode} darkMode={darkMode}></Header>
         <Section setDarkMode={setDarkMode} darkMode={darkMode}></Section>
     </div>

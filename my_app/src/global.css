@@ -5,9 +5,18 @@ header.dark_mode {
 header.light_mode {
     background-color: #f8fafc !important;
 }
-body.dark {
+.main_content {
+    height: 100vh;
+    width: 100%;
+    margin: 0 !important;
+} 
+.main_content.dark {
     background-color: rgb(39 39 42) !important;
 }
-body.light {
-    background-color: rgb(249 250 251) !important;
+.main_content {
+    background-color: rgb(228, 228, 228) !important;
+}
+
+.wrongInputs {
+    border: 2px solid #c92e26 !important;
 }

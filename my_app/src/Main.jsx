@@ -2,7 +2,7 @@ import React from 'react';
 import Card from "./Card";
 
 
-export default function Main({darkMode}) {
+export default function Main({darkMode, tasks, setTasks}) {
   return (
     <main className={`${darkMode ? "dark bg-zinc-700": ""} bg-white inset-shadow-2xs py-4 px-5 
       rounded w-[100%] sm:w-[100%] md:w-[100%] lg:w-[68%]`}>
@@ -18,9 +18,10 @@ export default function Main({darkMode}) {
             >Done</button>
         </ul>
         <div className="cards grid grid-cols-6 gap-3">
-            <Card darkMode={darkMode}></Card>
-            <Card darkMode={darkMode}></Card>
-            <Card darkMode={darkMode}></Card>
+          {tasks.length === 0 ? 
+          <p className={`${darkMode ? "dark text-white": ""} text-center mt-10 col-span-6 font-semibold`}>No Task Yet</p> : 
+          tasks.map((task, index) => 
+            <Card key={index} tasks={tasks} setTasks={setTasks} darkMode={darkMode} taskName={task.taskName} description={task.description}></Card>)}
         </div>
     </main>
   )
