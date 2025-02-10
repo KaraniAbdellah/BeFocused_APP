@@ -58,7 +58,7 @@ export default function Card({ idOfTask, darkMode, taskName, description, status
         <div
             className={`${
             darkMode ? "dark" : ""
-            } task_info flex justify-between mb-2`}
+            } task_info flex justify-between`}
         >
             <h3 className={`${darkMode ? "dark text-white" : ""} font-semibold`}>
             {taskName}
@@ -71,9 +71,9 @@ export default function Card({ idOfTask, darkMode, taskName, description, status
         >
             {description}
         </p>
-        <div className="pro_status flex gap-2 mb-4">
-            <button className="rounded bg-rose-500/100 text-white font-semibold text-xs p-1">{status}</button>
-            <button className="rounded bg-rose-500/100 text-white font-semibold text-xs p-1">{priority}</button>
+        <div className="pro_status flex gap-2 mb-1">
+            <button className="rounded text-rose-600 italic underline font-semibold text-sm">{status}</button>
+            <button className="rounded text-rose-600 italic underline font-semibold text-sm">{priority}</button>
         </div>
         <hr />
         <div className="btns mt-3">

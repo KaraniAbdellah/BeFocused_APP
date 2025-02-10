@@ -8,7 +8,7 @@ import { faMagnifyingGlass, faDatabase, faMoon, faSun } from '@fortawesome/free-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // Import Images
-import avatarLogo from "./assests/avatar.jpg";
+import avatarLogo from "./assests/avatar.png";
 
 const Header = ({setDarkMode, darkMode}) => {
     const handleDarkMode = () => {
