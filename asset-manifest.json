@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/BeFocused_APP/static/css/main.26094def.css",
+    "main.js": "/BeFocused_APP/static/js/main.04b046b1.js",
+    "static/js/488.9c92ff38.chunk.js": "/BeFocused_APP/static/js/488.9c92ff38.chunk.js",
+    "static/media/avatar.png": "/BeFocused_APP/static/media/avatar.091b9ac8acfa309ab959.png",
+    "static/media/pomodoro_voice.mp3": "/BeFocused_APP/static/media/pomodoro_voice.55a17596202a3872e3b3.mp3",
+    "index.html": "/BeFocused_APP/index.html",
+    "main.26094def.css.map": "/BeFocused_APP/static/css/main.26094def.css.map",
+    "main.04b046b1.js.map": "/BeFocused_APP/static/js/main.04b046b1.js.map",
+    "488.9c92ff38.chunk.js.map": "/BeFocused_APP/static/js/488.9c92ff38.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.26094def.css",
+    "static/js/main.04b046b1.js"
+  ]
+}
