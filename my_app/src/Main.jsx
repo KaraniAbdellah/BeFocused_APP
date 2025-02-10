@@ -36,18 +36,8 @@ export default function Main({darkMode, tasks, setTasks}) {
     const formatTime = (seconds) => {
         const minutes = Math.floor(seconds / 60);
         const secs = seconds % 60;
-    
-        if (minutes === 0 && secs === 0) {
-            console.log("task has been finished");
 
-            // Directly accessing events on the document object
-            const audio = new Audio(pomodoroVoice);
-    
-            // Check if the user has interacted before playing
-            document.addEventListener('click', () => {
-            audio.play();
-            }, { once: true });
-    
+        if (minutes === 0 && secs === 0) {
             return `🎉 Congrats 🎉`;
         } else {
             return `Timer: ${minutes}:${secs.toString().padStart(2, "0")}`;
@@ -56,7 +46,16 @@ export default function Main({darkMode, tasks, setTasks}) {
     
 
     const handlRefrech = () => {
+        console.log("task has been finished");
+        // Directly accessing events on the document object
+        const audio = new Audio(pomodoroVoice);
+        // Check if the user has interacted before playing
+        document.addEventListener('click', () => {
+            audio.play();
+        }, { once: true });
         setTimeLeft(1500);
+        localStorage.setItem("timeLeft", 1500);
+        setTaskStarted(0);
     }
 
     return (
