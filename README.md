@@ -1,6 +1,16 @@
 ## Initial View
-## Tasks View
+<img src="imgs/img0.png">
+
+## Tasks [dark]
+<img src="imgs/img1.png">
+
+## Tasks [light]
+<img src="imgs/img2.png">
+
 ## Set Timer
+<img src="imgs/img3.png">
+
+
 
 <div align="center">
   
@@ -13,6 +23,7 @@
 
 🍅 **Pomodoro App** 🍅  
 <p>The Pomodoro Technique is a time management method using 25-minute work sessions followed by 5-minute breaks. After four sessions, take a longer break to stay productive.</p>
+
 
 
 
