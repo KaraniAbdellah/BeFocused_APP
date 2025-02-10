@@ -22,5 +22,14 @@ header.light_mode {
 }
 
 .taskStarted {
-    border: 2px solid rgb(53, 156, 53);
+    border: 1.5px solid rgb(53, 156, 53);
 }
+
+.active {
+    background-color: rgb(14 165 233) !important;
+    color: white !important;
+}
+.active:hover {
+    background-color: rgb(2 132 199) !important;
+}
+

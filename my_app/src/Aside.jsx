@@ -14,10 +14,12 @@ function Aside({setDarkMode, darkMode, tasks, setTasks}) {
         let description = document.querySelector(".description");
         let status = document.querySelector("select.status");
         let priority = document.querySelector("select.priority");
-        if (taskName.value === "" || description.value === "") {
+        if (taskName.value === "") {
             taskName.classList.add("wrongInputs");
+        } else if (description.value === "") {
             description.classList.add("wrongInputs");
-        } else {
+        } 
+        else {
             taskName.classList.remove("wrongInputs");
             description.classList.remove("wrongInputs");
             let check = tasks.some((task) => task.taskName !== taskName.value);

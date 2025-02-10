@@ -12,6 +12,10 @@ import Section from "./Section";
 // Import CSS filies
 import "./global.css";
 
+// Import AOS
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);

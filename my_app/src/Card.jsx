@@ -1,9 +1,14 @@
 import React, { useEffect } from "react";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 export default function Card({ idOfTask, darkMode, taskName, description, status, priority,
     setTasks, tasks, taskStarted, setTaskStarted, classNameOdTaskStarted, setTimeLeft}) {
     const handleStart = (event) => {
-        setTimeLeft(1500);
+        if (event.target.parentElement.parentElement.classList.contains("taskStarted")) {
+            setTimeLeft(1500);
+        }
         localStorage.setItem("timeLeft", 1500);
         if (Number(localStorage.getItem("idOfTaskStarted")) === -1) {
             setTaskStarted(idOfTask);
@@ -49,6 +54,10 @@ export default function Card({ idOfTask, darkMode, taskName, description, status
             }
         }
     };
+    useEffect(() => {
+        AOS.init();
+
+    });
     return (
         <div
         className={`${
@@ -56,7 +65,7 @@ export default function Card({ idOfTask, darkMode, taskName, description, status
             } ${classNameOdTaskStarted} card bg-gray-100 p-2 rounded-sm lg:col-span-3
             md:col-span-3 sm:col-span-6 col-span-6`
         }
-        id={idOfTask}>
+        id={idOfTask} data-aos="flip-up">
         <div
             className={`${
             darkMode ? "dark" : ""
