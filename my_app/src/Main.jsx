@@ -47,15 +47,26 @@ export default function Main({darkMode, tasks, setTasks}) {
 
     const handlRefrech = () => {
         console.log("task has been finished");
-        // Directly accessing events on the document object
-        const audio = new Audio(pomodoroVoice);
-        // Check if the user has interacted before playing
-        document.addEventListener('click', () => {
-            audio.play();
-        }, { once: true });
+        // // Directly accessing events on the document object
+        // const audio = new Audio(pomodoroVoice);
+        // // Check if the user has interacted before playing
+        // audio.play();
         setTimeLeft(1500);
         localStorage.setItem("timeLeft", 1500);
         setTaskStarted(0);
+    }
+
+    const handleAllTasks = () => {
+        let tasksToDo = tasks.filter((task) => task.status === "To Do");
+        console.log(tasksToDo);
+    }
+    const handleDoing = () => {
+        let tasksDoing = tasks.filter((task) => task.status === "Doing");
+        console.log(tasksDoing);
+    }
+    const handleDone = () => {
+        let tasksDone = tasks.filter((task) => task.status === "Doing");
+        console.log(tasksDone);
     }
 
     return (
@@ -72,6 +83,16 @@ export default function Main({darkMode, tasks, setTasks}) {
                     </p>
                 ) : ""}
             </div>
+            <ul className="grid grid-cols-6 w-[100%] py-1 navigation mb-5 rounded-lg">
+                <button onClick={() => handleAllTasks()}  className="col-span-2 text-center font-semibold
+                rounded-sm py-2 px-4 text-sm bg-sky-500 hover:bg-sky-600 transition-all text-white">All tasks</button>
+                <button onClick={() => handleDoing()} className={`${darkMode ? "dark hover:bg-zinc-600" : ""} col-span-2 ml-2 text-center font-semibold 
+                hover:bg-gray-200 rounded-sm text-sky-600 py-2 px-4 text-sm transition-all`}
+                >Doing</button>
+                <button onClick={() => handleDone()} className={`${darkMode ? "dark hover:bg-zinc-600" : ""} col-span-2 ml-2 text-center font-semibold 
+                hover:bg-gray-200 rounded-sm text-sky-600 py-2 px-4 text-sm transition-all`}
+                >Done</button>
+            </ul>
             <div className="cards grid grid-cols-6 gap-3">
             {tasks.length === 0 ? 
             <p className={`${darkMode ? "dark text-white": ""} text-center my-10 col-span-6 font-semibold`}>No Task Yet</p> : 
@@ -97,13 +118,4 @@ export default function Main({darkMode, tasks, setTasks}) {
 
 
 
-{/* <ul className="grid grid-cols-6 w-[100%] py-1 navigation mb-5 rounded-lg">
-<button className="col-span-2 text-center font-semibold
-rounded-sm py-2 px-4 text-sm bg-sky-500 hover:bg-sky-600 transition-all text-white">To Do</button>
-<button className={`${darkMode ? "dark hover:bg-zinc-600" : ""} col-span-2 ml-2 text-center font-semibold 
-hover:bg-gray-200 rounded-sm text-sky-600 py-2 px-4 text-sm transition-all`}
->Doing</button>
-<button className={`${darkMode ? "dark hover:bg-zinc-600" : ""} col-span-2 ml-2 text-center font-semibold 
-hover:bg-gray-200 rounded-sm text-sky-600 py-2 px-4 text-sm transition-all`}
->Done</button>
-</ul> */}
+

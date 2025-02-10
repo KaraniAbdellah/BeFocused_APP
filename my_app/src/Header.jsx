@@ -28,7 +28,7 @@ const Header = ({setDarkMode, darkMode}) => {
         shadow-[0_-1px_6px_rgba(0,0,0,0.3)] bg-white`}>
             <div className="logo lg:block md:block d-flex justify-center items-center lg:w-[15%] md:w-[15%] hidden">
                 <a href="#">
-                    <p className="text-2xl font-bold text-sky-500">NoteMind</p>
+                    <p className="text-2xl font-bold text-sky-500">Pomodoro</p>
                 </a>
             </div>
             <div className="search flex  justify-center items-center lg:w-[60%] w-[70%] h-[100%] md:w-[60%]">
@@ -36,11 +36,11 @@ const Header = ({setDarkMode, darkMode}) => {
                 dark:bg-zinc-600 w-4/5 border-sky-500 rounded-l-sm border-2 border-solid 
                 rounded-none h-full pl-2 b2-slate-50 outline-none
                 `}
-                type="text" placeholder="Search"/>
+                type="text" placeholder="Filter By Status or Priority..."/>
                 <button className={`${darkMode ? "dark": ""}
                 w-1/5 transition-all h-full font-semibold
                 rounded-r-sm bg-sky-500 text-white hover:bg-sky-600
-                `}>Search</button>
+                `}>Filter</button>
             </div>
             <div className="account text-right flex justify-end  lg:w-[15%] md:w-[15%] w-[30%]">
                 <button onClick={handleDarkMode} className={`${darkMode ? "dark hover:bg-zinc-600" : ""} mr-2 w-10 rounded-3xl 

@@ -3,6 +3,8 @@ import React, { useEffect } from "react";
 export default function Card({ idOfTask, darkMode, taskName, description, status, priority,
     setTasks, tasks, taskStarted, setTaskStarted, classNameOdTaskStarted, setTimeLeft}) {
     const handleStart = (event) => {
+        setTimeLeft(1500);
+        localStorage.setItem("timeLeft", 1500);
         if (Number(localStorage.getItem("idOfTaskStarted")) === -1) {
             setTaskStarted(idOfTask);
             let TaskStartedEle = event.target.parentElement.parentElement;
@@ -72,8 +74,8 @@ export default function Card({ idOfTask, darkMode, taskName, description, status
             {description}
         </p>
         <div className="pro_status flex gap-2 mb-1">
-            <button className="rounded text-rose-600 italic underline font-semibold text-sm">#{status}</button>
-            <button className="rounded text-rose-600 italic underline font-semibold text-sm">#{priority}</button>
+            <button className="rounded text-rose-600 italic underline font-semibold text-sm">{status}</button>
+            <button className="rounded text-rose-600 italic underline font-semibold text-sm">{priority}</button>
         </div>
         <hr />
         <div className="btns mt-3">

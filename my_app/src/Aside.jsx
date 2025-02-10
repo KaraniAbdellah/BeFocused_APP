@@ -20,17 +20,19 @@ function Aside({setDarkMode, darkMode, tasks, setTasks}) {
         } else {
             taskName.classList.remove("wrongInputs");
             description.classList.remove("wrongInputs");
-            
-            await setTasks((prevTasks) => {
-                const updatedTasks = [...prevTasks, {
-                    taskName: taskName.value,
-                    description: description.value,
-                    status: status.value,
-                    priority: priority.value
-                }];
-                localStorage.setItem("tasks", JSON.stringify(updatedTasks)); // Store updated state
-                return updatedTasks;
-            });
+            let check = tasks.some((task) => task.taskName !== taskName.value);
+            if (check || tasks.length === 0) {
+                await setTasks((prevTasks) => {
+                    const updatedTasks = [...prevTasks, {
+                        taskName: taskName.value,
+                        description: description.value,
+                        status: status.value,
+                        priority: priority.value
+                    }];
+                    localStorage.setItem("tasks", JSON.stringify(updatedTasks)); // Store updated state
+                    return updatedTasks;
+                });
+            }
 
             taskName.value = description.value = "";
         }
@@ -38,7 +40,6 @@ function Aside({setDarkMode, darkMode, tasks, setTasks}) {
 
     useEffect(() => {
         let storedTasks = JSON.parse(localStorage.getItem("tasks"));
-        console.log(storedTasks);
         if (storedTasks) {
             setTasks((storedTasks));
         } else {
@@ -80,7 +81,6 @@ function Aside({setDarkMode, darkMode, tasks, setTasks}) {
                     <option disabled value={""}>Choose A Status</option>
                     <option value="To Do">To Do</option>
                     <option value="Doing">Doing</option>
-                    <option value="Done">Done</option>
                 </select>
             </div>
             <div className="mb-2">
