@@ -113,8 +113,9 @@ export default function Main({darkMode, tasks, setTasks}) {
                 ) : ""}
             </div>
             <ul className="grid grid-cols-6 w-[100%] py-1 navigation mb-5 rounded-lg">
-                <button onClick={() => handleAllTasks()}  className="main_btn active col-span-2 text-center font-semibold active
-                rounded-sm py-2 px-4 text-sm transition-all text-sky-600">All tasks</button>
+                <button onClick={() => handleAllTasks()}  className={`$${darkMode ? "dark hover:bg-zinc-600" : ""} main_btn active col-span-2 text-center font-semibold active
+                rounded-sm py-2 px-4 text-sm transition-all text-sky-600 hover:bg-gray-200`}>All tasks</button>
+
                 <button onClick={() => handleToDo()} className={`${darkMode ? "dark hover:bg-zinc-600" : ""} main_btn col-span-2 ml-2 text-center font-semibold 
                 hover:bg-gray-200 rounded-sm text-sky-600 py-2 px-4 text-sm transition-all`}
                 >To Do</button>
