@@ -10,6 +10,9 @@ export default function Card({ idOfTask, darkMode, taskName, description, status
             setTimeLeft(1500);
         }
         localStorage.setItem("timeLeft", 1500);
+        if (!localStorage.getItem("idOfTaskStarted")) {
+            localStorage.setItem("idOfTaskStarted", -1);
+        }
         if (Number(localStorage.getItem("idOfTaskStarted")) === -1) {
             setTaskStarted(idOfTask);
             let TaskStartedEle = event.target.parentElement.parentElement;

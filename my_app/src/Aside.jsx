@@ -7,6 +7,7 @@ import { faPlus, faTrashCan, faGauge, faTag, faX } from "@fortawesome/free-solid
 
 // Import Aside Component
 import Main from "./Main";
+import AOS from 'aos';
 
 function Aside({setDarkMode, darkMode, tasks, setTasks}) {
     async function AddTask() {
@@ -41,6 +42,7 @@ function Aside({setDarkMode, darkMode, tasks, setTasks}) {
     }
 
     useEffect(() => {
+        AOS.init();
         let storedTasks = JSON.parse(localStorage.getItem("tasks"));
         if (storedTasks) {
             setTasks((storedTasks));
@@ -52,7 +54,7 @@ function Aside({setDarkMode, darkMode, tasks, setTasks}) {
     
 
     return (
-        <aside className={`${darkMode ? "dark bg-zinc-700" : ""} bg-white inset-shadow-2xs
+        <aside data-aos="fade-right" className={`${darkMode ? "dark bg-zinc-700" : ""} bg-white inset-shadow-2xs
         lg:mb-0 md:mb-4 py-4 px-5 rounded w-[100%] lg:w-[30%] md:w-[100%]
         sm:w-[100%]`}>
             <h3 className={`${darkMode ? "dark text-white": ""} font-semibold mb-3 text-lg`}>Create new Task</h3>
